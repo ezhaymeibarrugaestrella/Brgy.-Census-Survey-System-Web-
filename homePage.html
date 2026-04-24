@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Home Page</title>
+</head>
+<body>
+  <div class="top-bar">
+    <div class="navbar">
+      <div class="nav-left">
+        <span class="title">CENSUS ONLINE SURVEY</span>
+        <img src="logo.jpg" alt="Logo" class="nav-logo" />
+      </div>
+      <ul class="nav_links">
+        <li><a href="#" onclick="showSection('about')">ABOUT</a></li>
+        <li><a href="#" onclick="showSection('help')">HELP</a></li>
+        <li><a href="#" onclick="showSection('contact')">CONTACT</a></li>
+        <!-- link pakadto sa dmgForm.html -->
+        <li><a href="dmgForm.html" class="start-button">Start Survey</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- SECTION CONTENTS -->
+    <section id="about" class="section-content hidden">
+      <h2>About</h2>
+      <p>The Barangay Census Online Survey System is a digital platform developed to streamline data collection for local residents...</p>
+      <p>This initiative aims to help local officials gather accurate and up-to-date demographic information to improve public services and planning. </p>
+    </section>
+
+    <section id="help" class="section-content hidden">
+      <h2>Help</h2>
+      <p><strong>How to Participate:</strong> Click "Start Survey" above...</p>
+      <p><strong>Technical Support:</strong> If you're experiencing issues, ensure your internet connection is stable and try refreshing the page.</p>
+      <p><strong>Privacy:</strong> Your information will be kept confidential and will only be used for barangay planning and services.</p>
+    </section>
+
+    <section id="contact" class="section-content hidden">
+      <h2>Contact</h2>
+      <p>For inquiries or assistance:</p>
+      <p><strong>Email:</strong> barangay.support@team.com</p>
+      <p><strong>Hotline:</strong> (0912) 345-6789</p>
+      <p><strong>Address:</strong> Barangay Hall, Poblacion, Mandaon</p>
+    </section>     
+  </div>
+
+  <script>
+    function showSection(id) {
+      // Hide all sections
+      const sections = document.querySelectorAll('.section-content');
+      sections.forEach(section => section.classList.add('hidden'));
+
+      // Show the clicked one
+      document.getElementById(id).classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>

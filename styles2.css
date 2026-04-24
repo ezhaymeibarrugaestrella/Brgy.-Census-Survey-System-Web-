@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Karla", sans-serif;
+  padding-top: 70px;
+  color: black;
+  background: 
+    linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)),
+    url("logo.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-attachment: fixed;
+}
+
+/* Top Navigation Bar */
+.top-bar {
+  background-color: black;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 10px 20px;
+}
+
+/* Navigation Container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Left Side: Title & Logo */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.title {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.nav-logo {
+  height: 40px;
+  width: auto;
+}
+
+/* Right Side: Links & Button */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav_links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav_links a {
+  text-decoration: none;
+  color: #F3F3E0;
+  font-weight: bold;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.nav_links a:hover {
+  color: #27548A;
+}
+
+/* Start Survey Button */
+.start-button {
+    background-color: #DDA853; 
+    color: #F3F3E0; 
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none; 
+}
+
+.start-button:hover {
+    background-color: #e6b800; /* darker yellow on hover */
+}
+
+/* Content Container */
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.section-content {
+    padding: 40px 20px;
+    background-color:  rgba(255, 255, 255, 0.9);
+    color: #183B4E;
+    max-width: 900px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+  
+.section-content.hidden {
+    display: none;
+  }
+  
+.section-content h2 {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.section-content p {
+  font-size: 25px;
+  line-height: 1.6;
+}
+

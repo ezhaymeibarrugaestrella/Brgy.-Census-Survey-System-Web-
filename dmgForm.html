@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles1.css" />
+  <title>Survey Form</title>
+</head>
+<body>
+
+  <!-- Navigation Bar sa taas -->
+  <div class="top-bar">
+    <div class="navbar">
+      <div class="nav-left">
+        <span class="title">CENSUS ONLINE SURVEY</span>
+        <img src="logo.jpg" alt="Logo" class="nav-logo" />
+      </div>
+      <ul class="nav_links nav-right">
+        <!-- link pakadto sa homePage.html -->
+        <li><a href="homePage.html">HOME</a></li>
+        <li><a href="#" onclick="showSection('about')">ABOUT</a></li>
+        <li><a href="#" onclick="showSection('help')">HELP</a></li>
+        <li><a href="#" onclick="showSection('contact')">CONTACT</a></li>
+        <!-- If the user click the 'Rate Survey Button' tapos mag load an ratingScale.html -->
+        <li><a href="ratingScale.html" class="rate-button">Rate Survey</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Page Sections -->
+  <div class="container">
+    <section id="about" class="section-content hidden">
+      <h2>About</h2>
+      <p>The Barangay Census Online Survey System is a digital platform developed to streamline data collection for local residents...</p>
+      <p>This initiative helps local officials gather accurate and up-to-date demographic information for better services and planning.</p>
+    </section>
+
+    <section id="help" class="section-content hidden">
+      <h2>Help</h2>
+      <p><strong>How to Participate:</strong> Click "Rate Survey" above and fill in the form.</p>
+      <p><strong>Technical Support:</strong> Ensure your internet connection is stable and try refreshing the page.</p>
+      <p><strong>Privacy:</strong> Your information is confidential and only used for barangay planning and services.</p>
+    </section>
+
+    <section id="contact" class="section-content hidden">
+      <h2>Contact</h2>
+      <p>For inquiries or assistance:</p>
+      <p><strong>Email:</strong> barangay.support@team.com</p>
+      <p><strong>Hotline:</strong> (0912) 345-6789</p>
+      <p><strong>Address:</strong> Barangay Hall, Poblacion, Mandaon</p>
+    </section>
+  </div>
+
+  <!-- Survey Form -->
+  <div class="container1">
+    <div class="title">Survey Form</div>
+    <form id="surveyForm">
+      <div class="user-details">
+        <div class="input-box">
+          <label class="details" for="fullname">Full Name</label>
+          <input type="text" id="fullname" placeholder="Enter your name" required>
+        </div>
+
+        <div class="input-box">
+          <label class="details" for="age">Age</label>
+          <input type="number" id="age" placeholder="Enter your age" required>
+        </div>
+
+        <div class="input-box">
+          <label class="details" for="address">Address</label>
+          <input type="text" id="address" placeholder="Enter your address" required>
+        </div>
+
+        <div class="input-box">
+          <label class="details" for="household">Number of Household Members</label>
+          <input type="number" id="household" placeholder="List of household members" required>
+        </div>
+      </div>
+
+      <!-- Gender Radio Buttons -->
+      <div class="gender-details">
+        <span class="gender-title">Gender</span>
+        <div class="category">
+          <label>
+            <input type="radio" name="gender" value="Male" required>
+            <span class="gender">Male</span>
+          </label>
+          <label>
+            <input type="radio" name="gender" value="Female">
+            <span class="gender">Female</span>
+          </label>
+          <label>
+            <input type="radio" name="gender" value="Prefer not to say">
+            <span class="gender">Prefer not to say</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="button">
+        <input type="submit" value="Submit Response">
+      </div>
+    </form>
+  </div>
+
+  <!-- JavaScript Section -->
+  <script>
+    function showSection(id) {
+      const sections = document.querySelectorAll('.section-content');
+      sections.forEach(section => section.classList.add('hidden'));
+
+      const target = document.getElementById(id);
+      if (target) {
+        target.classList.remove('hidden');
+        window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
+      }
+    }
+
+    // Show alert when form is submitted
+    document.getElementById('surveyForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Stop actual form submission
+      alert("Your data has been successfully saved.");
+      this.reset(); // Optional: clear form
+    });
+  </script>
+
+</body>
+</html>

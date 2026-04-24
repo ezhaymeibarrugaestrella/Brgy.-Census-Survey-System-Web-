@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="styles2.css" />
+  <title>Rating Scale</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 80px;
+      background-color: #f5f5f5;
+    }
+
+    .top-bar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: black;
+      color: white;
+      padding: 10px 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      z-index: 1000;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-logo {
+      width: 40px;
+      height: 40px;
+      margin-left: 10px;
+    }
+
+    .title {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .nav_links {
+      list-style: none;
+      display: flex;
+    }
+
+    .nav_links li {
+      margin-left: 20px;
+    }
+
+    .nav_links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .nav_links a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 800px;
+      margin-top: 100px;
+      padding: 20px;
+      background-color: #F3F3E0;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .section-content {
+      margin-bottom: 30px;
+    }
+
+    .rating-css {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .rating-css div:first-child {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .star_rating {
+      user-select: none;
+    }
+
+    .star {
+      font-size: 3rem;
+      color: #ccc;
+      background-color: unset;
+      border: none;
+      cursor: pointer;
+      transition: color 0.2s ease-in-out;
+    }
+
+    .star.selected,
+    .star:hover,
+    .star:hover ~ .star {
+      color: #183B4E;
+    }
+
+    .star:hover ~ .star {
+      color: #ccc !important;
+    }
+
+    #thank-you-msg {
+      margin-top: 15px;
+      color: #183B4E;
+      font-weight: bold;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <div class="navbar">
+      <div class="nav-left">
+        <span class="title">CENSUS ONLINE SURVEY</span>
+        <img src="logo.jpg" alt="Logo" class="nav-logo" />
+      </div>
+      <ul class="nav_links">
+        <!-- link pakadto sa homePage.html -->
+        <li><a href="homePage.html">HOME</a></li>
+        <li><a href="#" onclick="showSection('about')">ABOUT</a></li>
+        <li><a href="#" onclick="showSection('help')">HELP</a></li>
+        <li><a href="#" onclick="showSection('contact')">CONTACT</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- About Section -->
+    <section id="about" class="section-content hidden">
+      <h2>About</h2>
+      <p>The Barangay Census Online Survey System is a digital platform developed to streamline data collection for local residents...</p>
+      <p>This initiative aims to help local officials gather accurate and up-to-date demographic information to improve public services and planning.</p>
+    </section>
+
+    <!-- Help Section -->
+    <section id="help" class="section-content hidden">
+      <h2>Help</h2>
+      <p><strong>How to Participate:</strong> Click "Start Survey" above...</p>
+      <p><strong>Technical Support:</strong> If you're experiencing issues, ensure your internet connection is stable and try refreshing the page.</p>
+      <p><strong>Privacy:</strong> Your information will be kept confidential and will only be used for barangay planning and services.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-content hidden">
+      <h2>Contact</h2>
+      <p>For inquiries or assistance:</p>
+      <p><strong>Email:</strong> barangay.support@team.com</p>
+      <p><strong>Hotline:</strong> (0912) 345-6789</p>
+      <p><strong>Address:</strong> Barangay Hall, Poblacion, Mandaon</p>
+    </section>
+
+    <!-- Rating Section -->
+    <div class="rating-css">
+      <div>RATE US<br>How satisfied are you with the online survey experience?</div>
+      <div class="star_rating">
+        <button class="star">&#9733;</button>
+        <button class="star">&#9733;</button>
+        <button class="star">&#9733;</button>
+        <button class="star">&#9733;</button>
+        <button class="star">&#9733;</button>
+      </div>
+      <p id="thank-you-msg">Thank you for participating in our survey. Your feedback is valuable and appreciated.</p>
+    </div>
+  </div>
+
+  <script>
+    function showSection(id) {
+      const sections = document.querySelectorAll('.section-content');
+      sections.forEach(section => section.classList.add('hidden'));
+      const target = document.getElementById(id);
+      if (target) target.classList.remove('hidden');
+    }
+
+    // Rating logic with thank-you message sa baba
+    const stars = document.querySelectorAll('.star');
+    const thankYouMsg = document.getElementById('thank-you-msg');
+    let ratingSubmitted = false;
+
+    stars.forEach((star, index) => {
+      star.addEventListener('click', () => {
+        if (ratingSubmitted) return;
+
+        stars.forEach((s, i) => {
+          s.classList.toggle('selected', i <= index);
+        });
+
+        ratingSubmitted = true;
+        thankYouMsg.style.display = 'block';
+
+        stars.forEach(s => s.disabled = true);
+      });
+    });
+  </script>
+</body>
+</html>

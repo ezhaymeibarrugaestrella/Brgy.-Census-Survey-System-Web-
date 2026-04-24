@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Karla", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  padding-top: 90px;
+  background: 
+    linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
+    url("logo.jpg") no-repeat center center / contain fixed;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  color: #ffffff;
+}
+
+/* Main Form Container */
+.container1 {
+  width: 100%;
+  max-width: 1000px;
+  background: #183B4E;
+  padding: 40px 50px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Heading */
+.container1 .title {
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.container1 .title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  height: 4px;
+  width: 50px;
+  background-color: #DDA853;
+}
+
+/* User Details Grid */
+.container1 .user-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Individual Input Box */
+.user-details .input-box {
+  width: calc(50% - 20px);
+  margin-bottom: 20px;
+}
+
+.input-box label {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.input-box input {
+  width: 100%;
+  height: 50px;
+  padding: 10px 14px;
+  font-size: 16px;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  background-color: #f3f3f3;
+}
+
+/* Gender Section */
+.gender-details {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+/* Submit Button */
+form input[type="submit"] {
+  margin-top: 30px;
+  padding: 14px 28px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #DDA853;
+  color: #183B4E;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+  background-color: #e6b800;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .user-details .input-box {
+    width: 100%;
+  }
+
+  .container1 {
+    padding: 30px 20px;
+  }
+}
+
+/* Navigation Bar */
+.top-bar {
+  background-color: black;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 14px 20px;
+}
+
+/* Nav Container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Left Side */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.title {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.nav-logo {
+  height: 40px;
+  width: auto;
+}
+
+/* Right Side */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav_links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav_links a {
+  text-decoration: none;
+  color: #F3F3E0;
+  font-weight: bold;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.nav_links a:hover {
+  color: #27548A;
+}
+
+/* Rate Survey Button */
+.rate-button {
+  background-color: #DDA853;
+  color: #F3F3E0;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.rate-button:hover {
+  background-color: #DDA853;
+}
+
+/* Other Sections (if needed) */
+.section-content {
+  padding: 40px 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #183B4E;
+  max-width: 900px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.section-content.hidden {
+  display: none;
+}
+
+.section-content h2 {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.section-content p {
+  font-size: 25px;
+  line-height: 1.6;
+}
